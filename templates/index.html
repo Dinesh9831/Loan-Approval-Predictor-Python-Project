@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Predictor Pro - AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Loan Approval Predictor</h1>
+            <p class="subtitle">AI-powered analytics to estimate your loan status.</p>
+            
+            <form action="{{ url_for('predict')}}" method="post">
+                <div class="input-group">
+                    <label for="ApplicantIncome">Applicant Income ($)</label>
+                    <input type="number" step="any" id="ApplicantIncome" name="ApplicantIncome" required placeholder="e.g. 5000">
+                </div>
+                
+                <div class="input-group">
+                    <label for="LoanAmount">Loan Amount ($)</label>
+                    <input type="number" step="any" id="LoanAmount" name="LoanAmount" required placeholder="e.g. 150">
+                </div>
+                
+                <div class="input-group">
+                    <label for="CreditScore">Credit Score</label>
+                    <input type="number" step="any" id="CreditScore" name="CreditScore" required placeholder="e.g. 750">
+                </div>
+                
+                <div class="input-group">
+                    <label for="Education">Education Level</label>
+                    <div class="select-wrapper">
+                        <select id="Education" name="Education" required>
+                            <option value="" disabled selected>Select Education Level</option>
+                            <option value="1">Graduate</option>
+                            <option value="0">Not Graduate</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="SelfEmployed">Employment Status</label>
+                    <div class="select-wrapper">
+                        <select id="SelfEmployed" name="SelfEmployed" required>
+                            <option value="" disabled selected>Select Employment Status</option>
+                            <option value="1">Self Employed</option>
+                            <option value="0">Salaried / Not Self Employed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn">Predict Loan Status</button>
+            </form>
+
+            {% if prediction_text %}
+                <div class="result show {{ status_class }}">
+                    <h2>{{ prediction_text }}</h2>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
