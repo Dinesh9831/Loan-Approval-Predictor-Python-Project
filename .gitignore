@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+.venv/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Data files and models
+*.csv
+*.pkl
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git metadata
+.gitignore
